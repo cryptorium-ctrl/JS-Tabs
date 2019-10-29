@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+<button id="big-button">CLICK</button>
+
+<ul class="list-1">
+  <li>list-1 1</li>
+  <li>list-1 2</li>
+  <li>list-1 3</li>
+</ul>
+
+<ul class="list-2">
+  <li>list-2 1</li>
+  <li>list-2 2</li>
+  <li>list-2 3</li>
+</ul>
+
+
+
+<style>
+  .active {
+    background-color: #666;
+    color: white;
+  }
+</style>
+
+<script>
+
+    let list1 = document.querySelectorAll('.list-1 li');
+    let list2 = document.querySelectorAll('.list-2 li');
+
+    for(let i = 0; i < list1.length; i++) {
+        list1[i].addEventListener('click', function () {
+            let activeList = document.getElementsByClassName('active');
+            activeList[0].className = activeList[0].className.replace('active', '');
+            this.className += ' active';
+            for(let k = 0; k < list2.length; k++) {
+                list2[k].classList.remove('active');
+            }
+            list2[i].classList.add('active');
+        });
+    }
+
+
+         // handleClick = () => {
+         //     for (let i = 0; i < list1.length; i++) {
+         //         let activeList = document.getElementsByClassName('active');
+         //         activeList[0].className = activeList[0].className.replace('active', '');
+         //         this.className += ' active';
+         //         for (let k = 0; k < list2.length; k++) {
+         //             list2[k].classList.remove('active');
+         //         }
+         //         list2[i].classList.add('active');
+         //     }
+         // }
+         //
+         //     var button = document.querySelector('#big-button');
+         //     button.addEventListener('click', handleClick);
+
+
+
+
+
+</script>
+</body>
+</html>

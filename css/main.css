@@ -1,0 +1,81 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#my-tabs {
+  max-width: 800px;
+  margin-top: 50px;
+}
+
+.tabs__nav {
+  border-bottom: 2px solid #00a7a7;
+  display: flex;
+}
+
+.tabs__nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
+
+.tabs__nav li {
+  display: block;
+  width: 160px;
+  height: 40px;
+  padding-top: 15px;
+  text-align: center;
+  background-color: #ececec;
+  border: 1px solid #8a8a8a;
+  border-radius: 15px 15px 0 0;
+  border-bottom: none;
+  font-size: 14px;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+.tabs__nav .active,
+.tabs__nav li:focus,
+.tabs__nav li:hover {
+  background-color: #00a7a7;
+  color: #fff;
+}
+
+.tabs__body .tab.active {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.tab img {
+  width: 150px;
+  margin-right: 30px;
+}
+
+.tabs__body .tab{
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid #a5a5a5;
+  border-top: none;
+  line-height: 1.4;
+  visibility: hidden;
+  transition: all .3s ease;
+}
+
+.tabs__body.active .tab.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form {
+  margin: 30px;
+}
+

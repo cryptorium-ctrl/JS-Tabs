@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Custom css file -->
+    <link rel="stylesheet" href="css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
+    <title>Tabs</title>
+</head>
+
+<body>
+        <div id="my-tabs">
+<!--            <div class="tabs">-->
+<!--                <nav>-->
+<!--                    <ul class="tabs__nav">-->
+<!--                        <li class="active">-->
+<!--                            Tab one-->
+<!--                        </li>-->
+
+<!--                        <li>-->
+<!--                            Tab two-->
+<!--                        </li>-->
+
+<!--                        <li>-->
+<!--                            Tab three-->
+<!--                        </li>-->
+
+<!--                        <li>-->
+<!--                            Tab four-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </nav>-->
+
+<!--                <div class="tabs__body">-->
+<!--                    <div class="tab active">-->
+<!--                      <div class="service"> <figure><img src=""></figure>  <h3>Service one</h3></div>'-->
+<!--                    </div>-->
+
+<!--                    <div class="tab">-->
+<!--                      <div class="service"> <figure><img src=""></figure>  <h3>Service one</h3></div>'-->
+<!--                    </div>-->
+
+<!--                    <div class="tab">-->
+<!--                      <div class="service"> <figure><img src=""></figure>  <h3>Service one</h3></div>'-->
+<!--                    </div>-->
+
+<!--                    <div class="tab">-->
+<!--                      <div class="service"> <figure><img src=""></figure>  <h3>Service one</h3></div>'-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+        </div>
+
+        <button onclick="removeTab()" > remove </button>
+
+<!--        <div><button onclick="removeTab()">REMOVE</button></div>-->
+
+        <div class="form">
+          <form action="submit" onsubmit="addNewTabs(event)" id="newTabs-form">
+            <input type="text" name="text" placeholder="Add tab title" id="tab-title__input">
+            <input type="text" name="text" placeholder="Add tab content" id="tab-content__input">
+          <button id="btn-add" type="submit">ADD</button>
+          </form>
+        </div>
+
+
+    <!-- Scripts -->
+        <script src="js/tabs.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+        /*
+          Init tabs
+        */
+
+
+        let options = {
+            container: 'my-tabs',
+            panels: [
+                {
+                    link: 'Tab one',
+                    content: '<div class="service"><figure> <img src="img/no-img.jpeg"></figure>  <h3>Service one</h3></div>',
+
+                },
+                {
+                    link: 'Tab two',
+                    content: '<div class="service"><figure> <img src="img/no-img.jpeg"></figure>  <h3>Service two</h3></div>',
+
+                },
+                {
+                    link: 'Tab three',
+                    content: '<div class="service"> <figure> <img src="img/no-img.jpeg"></figure>  <h3>Service three</h3></div>',
+                    active: true,
+
+                },
+                {
+                    link: 'Tab four',
+                    content: '<div class="service"> <figure> <img src="img/no-img.jpeg"></figure>  <h3>Service four</h3></div>',
+
+                },
+            ]
+        }
+        const tabs = new Tabs(options);
+
+        /*
+        Add Tabs
+        */
+
+  const addNewTabs = (event) =>  {
+      const result = {
+          link: event.target[0].value,
+          content: `
+          <div class="service"> <figure> <img src="img/no-img.jpeg"></figure> <h3>${event.target[1].value}</h3></div>
+          `
+      };
+
+
+      tabs.addPanel(result);
+      event.preventDefault();
+      document.getElementById('tab-title__input').value = '';
+      document.getElementById('tab-content__input').value = '';
+
+  }
+
+     /*
+     Remove Tabs
+     */
+
+      const removeTab = () => {
+          let activeTab = document.getElementsByClassName('active');
+
+
+          tabs.removePanel();
+      }
+
+
+</script>
+</body>
+
+</html>
